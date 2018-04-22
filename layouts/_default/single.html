@@ -13,7 +13,16 @@
       <!-- The part of the page that begins to differ between templates -->
     {{ end }}
 
-    {{ .Content }}
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h1><i class="far fa-{{ .Param "icon" }}"></i> {{ .Title }}</h1>
+            </div>
+        </div>
+
+        {{ .Content }}
+    </div>
 
     {{ partial "footer.html" . }}
 </body>
