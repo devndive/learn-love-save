@@ -3,37 +3,28 @@
       <div class="col-md-12 text-center">
         <ul class="list-inline">
           <li>
-            <span class="fab fa-fw fa-facebook"></span>
-            <a href="{{ $.Site.Params.facebook }}" target="_blank">Me on Facebook</a>
+
+            <a href="{{ $.Site.Params.facebook }}" target="_blank">
+                <span class="fab fa-fw fa-facebook"></span>
+                <span class="hidden-xs">Me on Facebook</span>
+            </a>
           </li>
-          <li><span class="fas fa-envelope"></span> <a href="mailto:{{ $.Site.Params.email }}">Email</a></li>
-          <li><a href="https://apps.padi.com/scuba-diving/pro-chek/" target="_blank">OWSI #{{ $.Site.Params.padi }}</a></li>
+          <li>
+            <a href="mailto:{{ $.Site.Params.email }}">
+                <span class="fas fa-fw fa-envelope"></span>
+                <span class="hidden-xs">Email</span>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
   </div>
 
 <a class="toplink" onclick="topFunction()" id="return-to-top">
-  <i class="fas fa-angle-double-up"></i> nach oben
+  <i class="fas fa-angle-double-up"></i><span class="hidden-xs"> nach oben</span>
 </a>
 
 <script src="/vendor/jquery/jquery-3.3.1.min.js"></script>
 <script src="/vendor/bootstrap/3.3.7/bootstrap.min.js"></script>
 
-<script type="text/javascript">
-window.onscroll = function() {
-  scrollFunction()
-};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("return-to-top").style.display = "block";
-    } else {
-        document.getElementById("return-to-top").style.display = "none";
-    }
-}
-
-function topFunction() {
-    $('html,body').animate({ scrollTop:0 }, 20);
-}
-</script>
+<script src="/js/learn-love-save.js"></script>

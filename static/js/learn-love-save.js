@@ -1,0 +1,15 @@
+window.onscroll = function() {
+  scrollFunction()
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("return-to-top").style.display = "block";
+    } else {
+        document.getElementById("return-to-top").style.display = "none";
+    }
+}
+
+function topFunction() {
+    $('html,body').animate({ scrollTop:0 }, 20);
+}
