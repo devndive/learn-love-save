@@ -1,0 +1,40 @@
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        <div class="container footline">
+          <small>
+            <a href="{{ $.Site.Params.facebook }}" target="_blank"><span class="fab fa-facebook-f"></span></a>
+            - <a href="mailto:{{ $.Site.Params.email }}"><span class="far fa-envelope"></span></a>
+            - <a href="https://apps.padi.com/scuba-diving/pro-chek/" target="_blank">OWSI #{{ $.Site.Params.padi }}</a>
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="toplink" onclick="topFunction()" id="return-to-top">
+  <i class="fas fa-angle-double-up"></i> nach oben
+</a>
+
+<script src="/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="/vendor/bootstrap/3.3.7/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+window.onscroll = function() {
+  scrollFunction()
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("return-to-top").style.display = "block";
+    } else {
+        document.getElementById("return-to-top").style.display = "none";
+    }
+}
+
+function topFunction() {
+    $('html,body').animate({ scrollTop:0 }, 20);
+}
+</script>

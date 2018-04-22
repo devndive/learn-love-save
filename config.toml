@@ -1,0 +1,9 @@
+baseURL = "https://lls.de/"
+languageCode = "de-DE"
+title = "learn it | love it | save it"
+
+[params]
+  email = "yann.duval@posteo.de"
+  facebook = "https://facebook.com/yann.duval.16"
+  padi = "395289"
+  phone = "+49 176 856 22 373"

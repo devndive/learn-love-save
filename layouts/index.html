@@ -1,0 +1,94 @@
+
+{{ define "main" }}
+
+    <div id="title-images">
+        <img class="others" src="/imgs/maledives_coral_reef_2.jpg">
+        <img class="top" src="/imgs/owd_studnets_open_water_2.jpg">
+    </div>
+
+    <div class="container" style="padding-top: 25px;">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>
+                    <i class="far fa-address-card"></i> Learn it - blub</h2>
+                <p>Kleine Gruppen (2 Taucher)</p>
+                <p>Neutral tariert (schwebend)</p>
+                <p>5x Pool - 6x Freiwasser</p>
+                <p>Dein Mehrwert: OWD + PPB</p>
+                <p>
+                    <a class="btn btn-primary" href="/learn-it/" role="button">mehr »</a>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h2>
+                    <i class="far fa-heart"></i> Love it</h2>
+                <p>Erlebe was dir am meisten Spass macht</p>
+                <p>Betauche Wracks</p>
+                <p>Erkunde die Tiefe</p>
+                <p>Sei bereit, anderen zu helfen</p>
+                <p>
+                    <a class="btn btn-primary" href="/love-it/" role="button">mehr »</a>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h2>
+                    <i class="far fa-life-ring"></i> Save it</h2>
+                <p>Schütze was du liebst</p>
+                <p>Zeige anderen wie sie helfen können</p>
+                <p>Veranschauliche das Problem Müll im Meer</p>
+                <p>
+                    <a class="btn btn-primary" href="/save-it/" role="button">mehr »</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron" style="margin-top: 50px; margin-bottom: 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1>
+                        <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                        <i class="fas fa-tablet-alt" aria-hidden="true"></i>
+                        <i class="fas fa-desktop" aria-hidden="true"></i>
+                    </h1>
+                </div>
+                <div class="col-md-8">
+                    <h2>PADI eLearning - egal wo egal wann</h2>
+                    <p>Für den optimalen Einsatz deiner Zeit, kannst du mit dem PADI eLearning selber bestimmen wann und wo
+                        du lernen magst.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/imgs/profil-bild.jpg" class="img-responsive img-thumbnail">
+            </div>
+            <div class="col-md-8">
+                <h4>Kontaktiere mich</h4>
+                <p>Lass uns anfangen! Kontaktiere mich und lass und zusammen deinen Individuellen Kursablauf zusammenstellen!</p>
+                <p>
+                    <i class="fab fa-fw fa-skype"></i>
+                    <a onclick="Skype.tryAnalyzeSkypeUri('call', '0');" href="skype:yaduval?call">
+                        yaduval
+                    </a>
+                </p>
+                <p>
+                    <i class="fas fa-fw fa-phone"></i>
+                    {{ $.Site.Params.phone }}
+                </p>
+                <p>
+                    <i class="far fa-fw fa-envelope"></i>
+                    <a href="mailto:{{ $.Site.Params.email }}">
+                        {{ $.Site.Params.email }}
+                    </a>
+                </p>
+                <h4>Mehr Infos ...</h4>
+                <p>... bekommst du gerne im persönlichen Gespräch, Email oder Videocall.</p>
+            </div>
+        </div>
+    </div>
+{{ end }}
