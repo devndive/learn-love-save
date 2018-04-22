@@ -1,18 +1,17 @@
-<footer class="footer hidden-print">
-  <div class="container">
+  <div class="container footer hidden-print">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-        <div class="container footline">
-          <small>
-            <a href="{{ $.Site.Params.facebook }}" target="_blank"><span class="fab fa-facebook-f"></span></a>
-            - <a href="mailto:{{ $.Site.Params.email }}"><span class="far fa-envelope"></span></a>
-            - <a href="https://apps.padi.com/scuba-diving/pro-chek/" target="_blank">OWSI #{{ $.Site.Params.padi }}</a>
-          </small>
-        </div>
+      <div class="col-md-12 text-center">
+        <ul class="list-inline">
+          <li>
+            <span class="fab fa-fw fa-facebook"></span>
+            <a href="{{ $.Site.Params.facebook }}" target="_blank">Me on Facebook</a>
+          </li>
+          <li><span class="fas fa-envelope"></span> <a href="mailto:{{ $.Site.Params.email }}">Email</a></li>
+          <li><a href="https://apps.padi.com/scuba-diving/pro-chek/" target="_blank">OWSI #{{ $.Site.Params.padi }}</a></li>
+        </ul>
       </div>
     </div>
   </div>
-</footer>
 
 <a class="toplink" onclick="topFunction()" id="return-to-top">
   <i class="fas fa-angle-double-up"></i> nach oben

@@ -1,3 +1,13 @@
+html {
+    position: relative;
+    min-height: 100%;
+  }
+
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 90px;
+  }
+
 #title-images {
     position: relative;
 }
@@ -48,4 +58,22 @@
     bottom: 20px; /* Place the button at the bottom of the page */
     right: 30px; /* Place the button 30px from the right */
     z-index: 99; /* Make sure it does not overlap */
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+  }
+
+
+.footer .text-center {
+    padding: 20px 0;
+}
+
+.footer ul.list-inline {
+    margin-bottom: 0;
 }
