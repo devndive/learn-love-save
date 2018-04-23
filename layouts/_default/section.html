@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+{{ partial "header.html" . }}
+
+<body>
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    {{ partial "breadcrumb.html" . }}
+
+    {{ block "main" . }}
+      <!-- The part of the page that begins to differ between templates -->
+    {{ end }}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h1><i class="far fa-{{ .Param "icon" }}"></i> {{ .Title }}</h1>
+            </div>
+        </div>
+
+        {{ .Content }}
+    </div>
+
+    {{ partial "footer.html" . }}
+</body>
+
+</html>

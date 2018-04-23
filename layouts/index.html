@@ -7,38 +7,21 @@
 
     <div class="container" style="padding-top: 25px;">
         <div class="row">
-            <div class="col-xs-4">
+            {{ $columnSize := div 12 (len .Site.Sections) }}
+            {{ range .Site.Sections }}
+            <div class="col-xs-{{ $columnSize }}">
                 <h2>
-                <i class="far fa-address-card hidden-xs"></i> Learn it</h2>
-                <p>Kleine Gruppen (2 Taucher)</p>
-                <p>Neutral tariert (schwebend)</p>
-                <p>5x Pool - 6x Freiwasser</p>
-                <p>Dein Mehrwert: OWD + PPB</p>
+                <i class="far fa-{{ .Param "icon" }} hidden-xs"></i> {{ .LinkTitle }}</h2>
+
+                {{ range .Param "teasers" }}
+                    <p>{{ . }}</p>
+                {{ end }}
+
                 <p>
-                    <a class="btn btn-primary" href="/learn-it/" role="button">mehr <span class="fas fa-angle-double-right"></span></a>
+                    <a class="btn btn-primary" href="/{{ .Section }}" role="button">mehr <span class="fas fa-angle-double-right"></span></a>
                 </p>
             </div>
-            <div class="col-xs-4">
-                <h2>
-                    <i class="far fa-heart hidden-xs"></i> Love it</h2>
-                <p>Erlebe was dir am meisten Spass macht</p>
-                <p>Betauche Wracks</p>
-                <p>Erkunde die Tiefe</p>
-                <p>Sei bereit, anderen zu helfen</p>
-                <p>
-                    <a class="btn btn-primary" href="/love-it/" role="button">mehr <span class="fas fa-angle-double-right"></span></a>
-                </p>
-            </div>
-            <div class="col-xs-4">
-                <h2>
-                    <i class="far fa-life-ring hidden-xs"></i> Save it</h2>
-                <p>Schütze was du liebst</p>
-                <p>Zeige anderen wie sie helfen können</p>
-                <p>Veranschauliche das Problem Müll im Meer</p>
-                <p>
-                    <a class="btn btn-primary" href="/save-it/" role="button">mehr <span class="fas fa-angle-double-right"></span></a>
-                </p>
-            </div>
+            {{ end }}
         </div>
     </div>
 
