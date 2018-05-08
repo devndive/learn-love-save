@@ -1,1 +1,10 @@
+# General stuff
+.DS_Store
+node_modules/
+
+# Hugo specific stuff
 public/
+
+# learn love save specific
+static/css/*.css
+static/js/*.js
