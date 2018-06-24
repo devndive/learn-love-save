@@ -16,7 +16,7 @@ phases:
             - mv /tmp/hugo /usr/bin/hugo
             - go get github.com/wellington/wellington/wt
             - curl -Ls https://nodejs.org/dist/v${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.xz --output /tmp/node.tar.xz
-            - echo "${NODE_CHECKSUM} /tmp/node.tar.xz" | sha256sum -c -
+            - sha -a 256 /tmp/node.tar.xz
             - tar xf /tmp/node.tar.xz -C /tmp
             - mv /tmp/node-${NODE_VERSION}-linux-x64 /opt/
             - ln -s /opt/node-${NODE_VERSION}-linux-x64/bin/node /usr/bin/node
