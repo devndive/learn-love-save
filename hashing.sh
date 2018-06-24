@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 HASH=`./node_modules/.bin/rev-hash --rename ./static/css/learn-love-save.css | awk '{print $1}'`
 
 HASH_JS=`./node_modules/.bin/rev-hash --rename ./static/js/learn-love-save.js | awk '{print $1}'`
