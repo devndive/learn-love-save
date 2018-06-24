@@ -1,0 +1,28 @@
+version: 0.2
+
+env:
+    variables:
+        HUGO_VERSION: "0.42.1"
+        HUGO_CHECKSUM: ""
+
+phases:
+    install:
+        commands:
+            - curl -Ls https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz /tmp/hugo.tar.gz
+            - echo "${HUGO_CHECKSUM} /tmp/hugo.tar.gz" | sha256sum -c -
+            - tar xf /tmp/hugo.tar.gz -C /tmp
+            - mv /tmp/hugo_${HUGO_VERSION}_Linux_64bit/hugo /usr/bin/hugo
+            - rm -rf /tmp/hugo*
+            - go get github.com/wellington/wellington/wt
+    build:
+        commands:
+            - npm install
+            - wt compile src/scss/learn-love-save.scss --build="./static/css/" --comment="false"
+            - ./node_modules/.bin/postcss --use autoprefixer -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
+            - ./node_modules/.bin/cleancss -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
+            - sh ./hashing.sh
+
+artifacts:
+    files:
+        - '**/*'
+    base-directory: public
