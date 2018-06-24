@@ -30,3 +30,6 @@ phases:
             - ./node_modules/.bin/uglifyjs ./src/js/learn-love-save.js --compress --mangle -o ./static/js/learn-love-save.js
             - sh ./hashing.sh
             - hugo
+    post_build:
+        commands:
+            - aws s3 sync --region eu-central-1 --delete public s3://llsd.de
