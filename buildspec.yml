@@ -29,7 +29,3 @@ phases:
             - ./node_modules/.bin/cleancss -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
             - sh ./hashing.sh
 
-artifacts:
-    files:
-        - '**/*'
-    base-directory: public
