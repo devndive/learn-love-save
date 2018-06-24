@@ -4,6 +4,8 @@ env:
     variables:
         HUGO_VERSION: "0.42.1"
         HUGO_CHECKSUM: "425036350efc2d610953d4bb5258e9e8aaf41dad6657d9978cd58e34b205d3c4"
+        NODE_VERSION: "8.11.3"
+        NODE_CHECKSUM: ""
 
 phases:
     install:
@@ -13,6 +15,12 @@ phases:
             - tar xf /tmp/hugo.tar.gz -C /tmp
             - mv /tmp/hugo /usr/bin/hugo
             - go get github.com/wellington/wellington/wt
+            - curl -Ls https://nodejs.org/dist/v${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.xz --output /tmp/node.tar.xz
+            - echo "${NODE_CHECKSUM} /tmp/node.tar.xz" | sha256sum -c -
+            - tar xf /tmp/node.tar.xz -C /tmp
+            - mv /tmp/node-${NODE_VERSION}-linux-x64 /opt/
+            - ln -s /opt/node-${NODE_VERSION}-linux-x64/bin/node /usr/bin/node
+            - ln -s /opt/node-${NODE_VERSION}-linux-x64/bin/npm /usr/bin/npm
     build:
         commands:
             - npm install
