@@ -4,9 +4,9 @@ phases:
     build:
         commands:
             - wt compile src/scss/learn-love-save.scss --build="./static/css/" --comment="false"
-            - ./node_modules/.bin/postcss --use autoprefixer -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
-            - ./node_modules/.bin/cleancss -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
-            - ./node_modules/.bin/uglifyjs ./src/js/learn-love-save.js --compress --mangle -o ./static/js/learn-love-save.js
+            - postcss --use autoprefixer -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
+            - cleancss -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
+            - uglifyjs ./src/js/learn-love-save.js --compress --mangle -o ./static/js/learn-love-save.js
             - sh ./hashing.sh
             - hugo
     post_build:
