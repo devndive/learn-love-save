@@ -11,4 +11,4 @@ phases:
             - hugo
     post_build:
         commands:
-            - aws s3 sync --region eu-central-1 --delete --acl public-read s3://llsd.de
+            - aws s3 sync --region eu-central-1 --delete --acl public-read ./public s3://llsd.de
