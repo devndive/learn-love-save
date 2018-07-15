@@ -1,29 +1,10 @@
 version: 0.2
 
 env:
-    variables:
-        HUGO_VERSION: "0.42.1"
-        HUGO_CHECKSUM: "425036350efc2d610953d4bb5258e9e8aaf41dad6657d9978cd58e34b205d3c4"
-        NODE_VERSION: "8.11.3"
-        NODE_CHECKSUM: "08e2fcfea66746bd966ea3a89f26851f1238d96f86c33eaf6274f67fce58421a"
 
 phases:
-    install:
-        commands:
-            - curl -Ls https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz --output /tmp/hugo.tar.gz
-            - echo "${HUGO_CHECKSUM} /tmp/hugo.tar.gz" | sha256sum -c -
-            - tar xf /tmp/hugo.tar.gz -C /tmp
-            - mv /tmp/hugo /usr/bin/hugo
-            - go get github.com/wellington/wellington/wt
-            - curl -Ls https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz --output /tmp/node.tar.xz
-            - echo "${NODE_CHECKSUM} /tmp/node.tar.xz" | sha256sum -c -
-            - tar xf /tmp/node.tar.xz -C /tmp
-            - mv /tmp/node-v${NODE_VERSION}-linux-x64 /opt/
-            - ln -s /opt/node-v${NODE_VERSION}-linux-x64/bin/node /usr/bin/node
-            - ln -s /opt/node-v${NODE_VERSION}-linux-x64/bin/npm /usr/bin/npm
     build:
         commands:
-            - npm install
             - wt compile src/scss/learn-love-save.scss --build="./static/css/" --comment="false"
             - ./node_modules/.bin/postcss --use autoprefixer -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
             - ./node_modules/.bin/cleancss -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
@@ -32,4 +13,4 @@ phases:
             - hugo
     post_build:
         commands:
-            - aws s3 sync --region eu-central-1 --delete public s3://llsd.de
+            - aws s3 sync --region eu-central-1 --delete --acl public-read s3://llsd.de
