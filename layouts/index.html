@@ -1,8 +1,8 @@
 {{ define "main" }}
 
     <div id="title-images">
-        <img class="others" src="/imgs/maledives_coral_reef_2.jpg">
-        <img class="top" src="/imgs/owd_studnets_open_water_2.jpg">
+        <img class="others" src="/imgs/maledives_coral_reef_2.jpg" alt="Korallenriff auf den Malediven">
+        <img class="top" src="/imgs/owd_studnets_open_water_2.jpg" alt="Schüler im Freiwasser">
     </div>
 
     <div class="container" style="padding-top: 25px;">
@@ -47,17 +47,11 @@
     <div class="container" style="margin-top: 50px;">
         <div class="row">
             <div class="col-xs-4">
-                <img src="/imgs/profil-bild.jpg" class="img-responsive img-thumbnail">
+                <img src="/imgs/profil-bild.jpg" class="img-responsive img-thumbnail" alt="Profilbild von Yann Duval">
             </div>
             <div class="col-xs-8">
                 <h4>Kontaktiere mich</h4>
                 <p>Lass uns anfangen! Kontaktiere mich und lass und zusammen deinen Individuellen Kursablauf zusammenstellen!</p>
-                <p>
-                    <i class="fab fa-fw fa-skype"></i>
-                    <a onclick="Skype.tryAnalyzeSkypeUri('call', '0');" href="skype:yaduval?call">
-                        yaduval
-                    </a>
-                </p>
                 <p>
                     <i class="fas fa-fw fa-phone"></i>
                     {{ $.Site.Params.phone }}
