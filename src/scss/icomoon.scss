@@ -1,0 +1,109 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?uvv207');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?uvv207#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?uvv207') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?uvv207') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?uvv207##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-angle-double-up {
+  &:before {
+    content: $icon-angle-double-up; 
+  }
+}
+.icon-life-bouy {
+  &:before {
+    content: $icon-life-bouy; 
+  }
+}
+.icon-life-ring {
+  &:before {
+    content: $icon-life-ring; 
+  }
+}
+.icon-life-saver {
+  &:before {
+    content: $icon-life-saver; 
+  }
+}
+.icon-support {
+  &:before {
+    content: $icon-support; 
+  }
+}
+.icon-tablet {
+  &:before {
+    content: $icon-tablet; 
+  }
+}
+.icon-mobile {
+  &:before {
+    content: $icon-mobile; 
+  }
+}
+.icon-mobile-phone {
+  &:before {
+    content: $icon-mobile-phone; 
+  }
+}
+.icon-phone {
+  &:before {
+    content: $icon-phone; 
+  }
+}
+.icon-desktop {
+  &:before {
+    content: $icon-desktop; 
+  }
+}
+.icon-envelope-o {
+  &:before {
+    content: $icon-envelope-o; 
+  }
+}
+.icon-envelope {
+  &:before {
+    content: $icon-envelope; 
+  }
+}
+.icon-heart-o {
+  &:before {
+    content: $icon-heart-o; 
+  }
+}
+.icon-drivers-license-o {
+  &:before {
+    content: $icon-drivers-license-o; 
+  }
+}
+.icon-id-card-o {
+  &:before {
+    content: $icon-id-card-o; 
+  }
+}
+.icon-facebook2 {
+  &:before {
+    content: $icon-facebook2; 
+  }
+}
+

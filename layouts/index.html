@@ -11,7 +11,7 @@
             {{ range .Site.Sections }}
             <div class="col-xs-{{ $columnSize }}">
                 <h2>
-                <i class="far fa-{{ .Param "icon" }} hidden-xs"></i> {{ .LinkTitle }}</h2>
+                <i class="icon {{ .Param "icon" }} hidden-xs"></i> {{ .LinkTitle }}</h2>
 
                 {{ range .Param "teasers" }}
                     <p>{{ . }}</p>
@@ -30,9 +30,9 @@
             <div class="row">
                 <div class="col-sm-4 hidden-xs">
                     <h1>
-                        <i class="fas fa-mobile-alt" aria-hidden="true"></i>
-                        <i class="fas fa-tablet-alt" aria-hidden="true"></i>
-                        <i class="fas fa-desktop" aria-hidden="true"></i>
+                        <i class="icon icon-mobile-phone" aria-hidden="true"></i>
+                        <i class="icon icon-tablet" aria-hidden="true"></i>
+                        <i class="icon icon-desktop" aria-hidden="true"></i>
                     </h1>
                 </div>
                 <div class="col-sm-8">
@@ -53,11 +53,11 @@
                 <h4>Kontaktiere mich</h4>
                 <p>Lass uns anfangen! Kontaktiere mich und lass und zusammen deinen Individuellen Kursablauf zusammenstellen!</p>
                 <p>
-                    <i class="fas fa-fw fa-phone"></i>
+                    <i class="icon icon-phone"></i>
                     {{ $.Site.Params.phone }}
                 </p>
                 <p>
-                    <i class="far fa-fw fa-envelope"></i>
+                    <i class="icon icon-envelope-o"></i>
                     <a href="mailto:{{ $.Site.Params.email }}">
                         {{ $.Site.Params.email }}
                     </a>

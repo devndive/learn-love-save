@@ -1,0 +1,76 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 90px;
+}
+
+#title-images {
+  position: relative;
+
+  img {
+    transition: opacity 1s ease-in-out;
+
+    width: 100%;
+    height: auto;
+
+    &.top {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      animation-name: title-images-fading;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-duration: 10s;
+      animation-direction: alternate;
+    }
+  }
+}
+
+@keyframes title-images-fading {
+  0% {
+      opacity: 1;
+  }
+  45% {
+      opacity: 1;
+  }
+  55% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+.toplink {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+}
+
+.last-row {
+  margin-top: 20px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+
+  .text-center {
+    padding: 20px 0;
+  }
+
+  ul.list-inline {
+    margin-bottom: 0;
+  }
+}

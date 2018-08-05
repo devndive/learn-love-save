@@ -8,3 +8,6 @@ public/
 # learn love save specific
 static/css/*.css
 static/js/*.js
+
+# ignoring file that is only needed for hashing
+data/assets.json
