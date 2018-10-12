@@ -1,6 +1,7 @@
 baseURL = "https://llsd.de/"
 languageCode = "de-DE"
 title = "learn it | love it | save it"
+disableHugoGeneratorInject = true
 
 [params]
   email = "yann.duval@posteo.de"

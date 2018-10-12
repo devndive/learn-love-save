@@ -11,4 +11,7 @@ phases:
             - hugo
     post_build:
         commands:
-            - aws s3 sync --region eu-central-1 --delete --acl public-read ./public s3://llsd.de
+            - aws s3 sync --region eu-central-1 --delete --acl public-read --exclude "*" --include "*.html" --content-type "text/html; charset=utf-8"       --metadata-directive=REPLACE ./public s3://llsd.de
+            - aws s3 sync --region eu-central-1 --delete --acl public-read --exclude "*" --include "*.js"   --content-type "text/javascript; charset=utf-8" --metadata-directive=REPLACE ./public s3://llsd.de
+            - aws s3 sync --region eu-central-1 --delete --acl public-read --exclude "*" --include "*.css"  --content-type "text/css; charset=utf-8"        --metadata-directive=REPLACE ./public s3://llsd.de
+            - aws s3 sync --region eu-central-1 --delete --acl public-read --exclude "*.html" --exclude "*.js" --exclude "*.css" ./public s3://llsd.de
