@@ -1,17 +1,16 @@
 version: 0.2
 
 phases:
-    build:
-        commands:
-            - wt compile src/scss/learn-love-save.scss --build="./static/css/" --comment="false"
-            - postcss --use autoprefixer -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
-            - cleancss -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
-            - uglifyjs ./src/js/learn-love-save.js --compress --mangle -o ./static/js/learn-love-save.js
-            - sh ./hashing.sh
-            - hugo
-    post_build:
-        commands:
-            - aws s3 sync --region eu-central-1 --delete --acl public-read --exclude "*" --include "*.html" --content-type "text/html; charset=utf-8"       --metadata-directive=REPLACE ./public s3://llsd.de
-            - aws s3 sync --region eu-central-1 --delete --acl public-read --exclude "*" --include "*.js"   --content-type "text/javascript; charset=utf-8" --metadata-directive=REPLACE ./public s3://llsd.de
-            - aws s3 sync --region eu-central-1 --delete --acl public-read --exclude "*" --include "*.css"  --content-type "text/css; charset=utf-8"        --metadata-directive=REPLACE ./public s3://llsd.de
-            - aws s3 sync --region eu-central-1 --delete --acl public-read --exclude "*.html" --exclude "*.js" --exclude "*.css" ./public s3://llsd.de
+  build:
+    commands:
+      - wt compile src/scss/learn-love-save.scss --build="./static/css/" --comment="false"
+      - postcss --use autoprefixer -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
+      - cleancss -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
+      - uglifyjs ./src/js/learn-love-save.js --compress --mangle -o ./static/js/learn-love-save.js
+      - sh ./hashing.sh
+      - hugo
+artifacts:
+  files:
+    - '**/*'
+  name: llsd-$(date +%Y-%m-%d)
+  base-directory: public
