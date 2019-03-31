@@ -1,7 +1,10 @@
-
-<ol class="breadcrumb">
-  {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
-</ol>
+<div class="breadcrumb">
+  <div class="container ml-3">
+    <ol class="breadcrumb mb-0">
+      {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+    </ol>
+  </div>
+</div>
 
 {{ define "breadcrumbnav" }}
   {{ if .p1.Parent }}
@@ -9,11 +12,11 @@
   {{ end }}
 
   {{ if eq .p1 .p2 }}
-    <li class="active">
+    <li class="breadcrumb-item active">
       {{ .p1.LinkTitle }}
     </li>
   {{ else }}
-  <li>
+  <li class="breadcrumb-item">
     <a href="{{ .p1.Permalink }}">{{ if .p1.IsHome }}Home{{ else }}{{ .p1.LinkTitle }}{{ end }}</a>
   </li>
   {{ end }}
