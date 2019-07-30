@@ -5,9 +5,6 @@
         &copy; 2019 Yann Duval
       </div>
       <div class="col-6 text-center">
-        <a href="{{ $.Site.Params.facebook }}" target="_blank" rel="noreferrer noopener" title="Link zu meiner Facebook Seite">
-          <span class="icon icon-facebook2"></span>
-        </a>
         <a href="mailto:{{ $.Site.Params.email }}" title="Email schreiben">
           <span class="icon icon-envelope"></span>
         </a>
@@ -24,10 +21,11 @@
   <i class="icon icon-angle-double-up"></i><span class="hidden-xs"> nach oben</span>
 </a>
 
-<script src="/vendor/jquery/jquery-3.3.1.min.js"></script>
-<script src="/vendor/bootstrap/4.3.1/bootstrap.min.js"></script>
+{{ $jquery := resources.Get "vendor/jquery/jquery-3.3.1.min.js" | fingerprint "sha512" }}
+<script type="text/javascript" src="{{ $jquery.Permalink }}" integrity="{{ $jquery.Data.Integrity }}"></script>
 
-<script src="{{ index .Site.Data.assets.js.lls "filename" }}"
-  integrity="{{ index .Site.Data.assets.js.lls "sri384" }}"
-  crossorigin="anonymous">
-</script>
+{{ $bootstrap := resources.Get "vendor/bootstrap/4.3.1/bootstrap.min.js" | fingerprint "sha512" }}
+<script type="text/javascript" src="{{ $bootstrap.Permalink }}" integrity="{{ $bootstrap.Data.Integrity }}"></script>
+
+{{ $llsd := resources.Get "js/learn-love-save.js" | fingerprint "sha512" }}
+<script type="text/javascript" src="{{ $llsd.Permalink }}" integrity="{{ $llsd.Data.Integrity }}"></script>

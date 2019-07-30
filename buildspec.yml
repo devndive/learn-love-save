@@ -3,11 +3,6 @@ version: 0.2
 phases:
   build:
     commands:
-      - wt compile src/scss/learn-love-save.scss --build="./static/css/" --comment="false"
-      - postcss --use autoprefixer -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
-      - cleancss -o ./static/css/learn-love-save.css ./static/css/learn-love-save.css
-      - uglifyjs ./src/js/learn-love-save.js --compress --mangle -o ./static/js/learn-love-save.js
-      - sh ./hashing.sh
       - hugo
 artifacts:
   files:

@@ -10,8 +10,9 @@
   <!-- Place favicon.ico in the root directory -->
   <link rel="icon" href="/favicon.jpg">
 
-  <link rel="stylesheet" href="/vendor/bootstrap/4.3.1/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="{{ index .Site.Data.assets.css.lls "filename" }}"
-    integrity="{{ index .Site.Data.assets.css.lls "sri384" }}"
-    crossorigin="anonymous">
+  {{ $bootstrapCSS := resources.Get "vendor/bootstrap/4.3.1/bootstrap.min.css" | fingerprint }}
+  <link rel="stylesheet" href="{{ $bootstrapCSS.Permalink }}">
+
+  {{ $llsCSS := resources.Get "scss/learn-love-save.scss" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $llsCSS.Permalink }}">
 </head>
