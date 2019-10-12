@@ -1,2 +1,2 @@
-# Inspiration for setup
-https://vickylai.com/verbose/aws-static-site/
+# Learn it - love it - save it
+https://llsd.de
