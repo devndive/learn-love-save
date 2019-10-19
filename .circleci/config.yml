@@ -1,15 +1,15 @@
- version: 2
- jobs:
-   build:
-     docker:
-       - image: devndive/uts
-     steps:
-       - checkout
+version: 2
+jobs:
+  build:
+    docker:
+      - image: devndive/uts
+    steps:
+      - checkout
 
-       - run:
+      - run:
           name: Greeting
           command: echo Hello, world.
 
       - run:
-          name: Print the Current Time
-          command: date
+         name: Print the Current Time
+         command: date
