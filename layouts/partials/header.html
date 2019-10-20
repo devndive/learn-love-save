@@ -8,7 +8,19 @@
   <title>learn it | love it | save it</title>
 
   <!-- Place favicon.ico in the root directory -->
-  <link rel="icon" href="/favicon.jpg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" href="/scuba-152-170990.png">
+
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="msapplication-TileImage" content="/scuba-144-170990.png">
+
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/scuba-152-170990.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/scuba-144-170990.png">
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/scuba-120-170990.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/scuba-114-170990.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/scuba-72-170990.png">
+  <link rel="apple-touch-icon-precomposed" href="/scuba-57-170990.png">
+  <link rel="icon" href="/scuba-32-170990.png" sizes="32x32">
 
   {{ $bootstrapCSS := resources.Get "vendor/bootstrap/4.3.1/bootstrap.min.css" | fingerprint }}
   <link rel="stylesheet" href="{{ $bootstrapCSS.Permalink }}">
