@@ -24,3 +24,14 @@ jobs:
     steps:
       - aws-cli/setup
       - run: aws s3 sync --delete ./public s3://${S3_TARGET}/
+
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - deploy:
+          filters:
+            branches:
+              only: master
