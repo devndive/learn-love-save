@@ -16,7 +16,7 @@ jobs:
 
       - run:
           name: testing
-          command: htmlproofer ./public --allow-hash-href --check-html --empty-alt-ignore --disabable-external
+          command: htmlproofer ./public --allow-hash-href --check-html --empty-alt-ignore --disable-external
   
   deploy:
     executor: aws-cli/default
