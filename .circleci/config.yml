@@ -1,15 +1,28 @@
-version: 2
+version: 2.1
+orbs:
+  aws-cli: circleci/aws-cli@0.1.16
+
 jobs:
   build:
     docker:
-      - image: devndive/uts
+      - image: cibuilds/hugo:0.58.3@sha256:df8abd5bb3587598fcadbcd8ef69ad1b51b902c993fd3d09bb67b90a407765d8
+
     steps:
       - checkout
 
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: building
+          command: HUGO_ENV=production hugo
 
       - run:
-         name: Print the Current Time
-         command: date
+          name: testing
+          command: |
+            htmlproofer ./public --allow-hash-href --check-html \
+            --empty-alt-ignore --disabable-external
+  
+  deploy:
+    executor: aws-cli/default
+
+    steps:
+      - aws-cli/setup
+      - run: aws s3 sync --delete ./public s3://${S3_TARGET}/
