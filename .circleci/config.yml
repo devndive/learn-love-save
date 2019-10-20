@@ -19,12 +19,19 @@ jobs:
           command: htmlproofer ./public --allow-hash-href --check-html --empty-alt-ignore --disable-external
   
   deploy:
-    filters:
-      branches:
-        only: master
-
     executor: aws-cli/default
 
     steps:
       - aws-cli/setup
       - run: aws s3 sync --delete ./public s3://${S3_TARGET}/
+
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - deploy:
+          filters:
+            branches:
+              only: master
