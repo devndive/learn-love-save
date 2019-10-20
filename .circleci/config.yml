@@ -30,7 +30,7 @@ jobs:
       - aws-cli/setup
       - attach_workspace:
           at: ./public
-      - run: aws s3 sync --delete ./public s3://${S3_TARGET}/
+      - run: aws s3 sync --delete ./public s3://$S3_TARGET/
 
 
 workflows:
@@ -39,6 +39,8 @@ workflows:
     jobs:
       - build
       - deploy:
+          requires:
+            - build
           filters:
             branches:
               only: master
