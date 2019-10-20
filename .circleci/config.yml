@@ -17,12 +17,19 @@ jobs:
       - run:
           name: testing
           command: htmlproofer ./public --allow-hash-href --check-html --empty-alt-ignore --disable-external
-  
+
+      - persist_to_workspace:
+          root: ./public
+          paths:
+            - '*'
+
   deploy:
     executor: aws-cli/default
 
     steps:
       - aws-cli/setup
+      - attach_workspace:
+          at: ./public
       - run: aws s3 sync --delete ./public s3://${S3_TARGET}/
 
 
