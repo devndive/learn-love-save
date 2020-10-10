@@ -9,8 +9,9 @@ jobs:
 
     steps:
       - aws-cli/setup
-      - attach_workspace
-      - run: aws s3 sync --delete ./public s3://$S3_TARGET/
+      - attach_workspace:
+          at: ./workspace
+      - run: aws s3 sync --delete ./workspace/public s3://$S3_TARGET/
 
 workflows:
   version: 2
