@@ -22,8 +22,7 @@
   <link rel="apple-touch-icon-precomposed" href="/scuba-57-170990.png">
   <link rel="icon" href="/scuba-32-170990.png" sizes="32x32">
 
-  {{ $bootstrapCSS := resources.Get "vendor/bootstrap/4.3.1/bootstrap.min.css" | fingerprint }}
-  <link rel="stylesheet" href="{{ $bootstrapCSS.Permalink }}">
+  <link rel="stylesheet" href="/vendor/bootstrap/4.5.2/bootstrap.min.css">
 
   {{ $llsCSS := resources.Get "scss/learn-love-save.scss" | toCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $llsCSS.Permalink }}">
