@@ -23,7 +23,7 @@ workflows:
           html-proofer: true
           hugo-env: production
           persist-to-workspace: true
-          src: .
+          source: .
           destination: public
 
           # Default is latest
