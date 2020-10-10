@@ -1,28 +1,9 @@
 version: 2.1
 orbs:
-  aws-cli: circleci/aws-cli@0.1.16
+  aws-cli: circleci/aws-cli@1.3.0
+  hugo: circleci/hugo@1.0.0
 
 jobs:
-  build:
-    docker:
-      - image: cibuilds/hugo:0.58.3@sha256:df8abd5bb3587598fcadbcd8ef69ad1b51b902c993fd3d09bb67b90a407765d8
-
-    steps:
-      - checkout
-
-      - run:
-          name: building
-          command: HUGO_ENV=production hugo
-
-      - run:
-          name: testing
-          command: htmlproofer ./public --allow-hash-href --check-html --empty-alt-ignore --disable-external
-
-      - persist_to_workspace:
-          root: ./public
-          paths:
-            - '*'
-
   deploy:
     executor: aws-cli/default
 
@@ -32,15 +13,26 @@ jobs:
           at: ./public
       - run: aws s3 sync --delete ./public s3://$S3_TARGET/
 
-
 workflows:
   version: 2
   build:
     jobs:
-      - build
+      - hugo/build:
+          # Explicitly setting to default value to not be affected by
+          # possible changes
+          html-proofer: true
+          hugo-env: production
+          persist-to-workspace: true
+          source: .
+          destination: public
+
+          # Default is latest
+          # Using a specific version that is used during development.
+          version: '0.76.3'
+
       - deploy:
           requires:
-            - build
+            - hugo/build
           filters:
             branches:
               only: main

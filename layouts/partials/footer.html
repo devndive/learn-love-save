@@ -21,11 +21,8 @@
   <i class="icon icon-angle-double-up"></i><span class="hidden-xs"> nach oben</span>
 </a>
 
-{{ $jquery := resources.Get "vendor/jquery/jquery-3.3.1.min.js" | fingerprint "sha512" }}
-<script type="text/javascript" src="{{ $jquery.Permalink }}" integrity="{{ $jquery.Data.Integrity }}"></script>
+<script type="text/javascript" src="/vendor/jquery/jquery-3.5.1.min.js" integrity="sha384-BpBT0zdVdY1QgMdMqweADU/sp+bfTafEIIOQhRi1A+tY/vXJDltDMu7GevJBUNm4"></script>
+<script type="text/javascript" src="/vendor/bootstrap/4.5.2/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"></script>
 
-{{ $bootstrap := resources.Get "vendor/bootstrap/4.3.1/bootstrap.min.js" | fingerprint "sha512" }}
-<script type="text/javascript" src="{{ $bootstrap.Permalink }}" integrity="{{ $bootstrap.Data.Integrity }}"></script>
-
-{{ $llsd := resources.Get "js/learn-love-save.js" | fingerprint "sha512" }}
+{{ $llsd := resources.Get "js/learn-love-save.js" | minify | fingerprint "sha512" }}
 <script type="text/javascript" src="{{ $llsd.Permalink }}" integrity="{{ $llsd.Data.Integrity }}"></script>
