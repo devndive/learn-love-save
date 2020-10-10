@@ -17,7 +17,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - hugo/build
+      - hugo/build:
           # Explicitly setting to default value to not be affected by
           # possible changes
           html-proofer: true
