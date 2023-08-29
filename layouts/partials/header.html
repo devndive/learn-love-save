@@ -25,5 +25,5 @@
   <link rel="stylesheet" href="/vendor/bootstrap/4.5.2/bootstrap.min.css">
 
   {{ $llsCSS := resources.Get "scss/learn-love-save.scss" | toCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $llsCSS.Permalink }}">
+  <link rel="stylesheet" href="{{ $llsCSS.RelPermalink }}">
 </head>
